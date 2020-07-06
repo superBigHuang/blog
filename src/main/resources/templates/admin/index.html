@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head th:replace="admin/_fragments :: head(~{::title})">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <link rel="stylesheet" href="../static/css/me.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.css">
+    <title>博客列表</title>
+
+</head>
+<body class="m-body-background">
+    <!--导航-->
+
+    <nav th:replace="admin/_fragments :: menu(0)" class="ui inverted attached segment m-padded-tb-mini m-shadow-small">
+
+    </nav>
+
+
+    <!--中间-->
+    <div class="m-container-small m-padded-tb-big">
+        <div class="ui container">
+            <div class="ui positive">
+                <div class="ui message large success">
+                    <h2>hi</h2>
+                    <p>可达鸭，欢迎登录！</p>
+                </div>
+                <img src="https://i.picsum.photos/id/0/5616/3744.jpg"  alt="" class="ui rounded bordered fluid image">
+            </div>
+        </div>
+    </div>
+
+    <br>
+
+    <br>
+    <br>
+
+    <!--底部-->
+    <footer th:replace="admin/_fragments :: footer" class="ui inverted vertical segment m-padded-tb-massive">
+    </footer>
+
+<!--/*/<th:block th:replace="_fragments :: script">/*/-->
+<script src="https://cdn.bootcss.com/jquery/3.5.0/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.js"></script>
+<!--/*/</th:block>/*/-->
+<script>
+    $('.menu.toggle').click(function () {
+        $('.m-item').toggleClass("m-mobile-hide");
+    });
+    $('.ui.dropdown').dropdown({
+        on : "hover"
+    });
+</script>
+</body>
+</html>

@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head th:fragment="head(tittle)">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <title th:replace="${tittle}">Title</title>
+    <link rel="stylesheet" href="../static/css/me.css" th:href="@{/css/me.css}">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.css">
+    <link rel="stylesheet" href="../static/css/typo.css" th:href="@{/css/typo.css}">
+    <link rel="stylesheet" href="../static/css/animate.css" th:href="@{/css/animate.css}">
+    <link rel="stylesheet" href="../static/lib/prism/prism.css" th:href="@{/lib/prism/prism.css}">
+    <link rel="stylesheet" href="../static/lib/tocbot/tocbot.css" th:href="@{/lib/tocbot/tocbot.css}">
+</head>
+<body>
+    <nav th:fragment="menu(n)" class="ui inverted attached segment m-padded-tb-mini m-shadow-small">
+    <a href="#" class="ui menu toggle black icon button  m-mobile-show m-right-top" >
+        <i class="sidebar icon"></i>
+    </a>
+    <div class="ui container">
+        <div class="ui inverted secondary stackable menu">
+            <h2 class="ui teal header item ">Blog</h2>
+            <a href="#" th:href="@{/}" class="item m-mobile-hide m-item" th:classappend="${n==1} ? 'active'"><i class="mini home icon "></i>&nbsp;&nbsp;首页</a>
+            <a href="#" th:href="@{/types/-1}" class="item m-mobile-hide m-item" th:classappend="${n==2} ? 'active'"><i class="mini idea icon "></i>&nbsp;&nbsp;分类</a>
+            <a href="#" th:href="@{/tags/-1}" class="item m-mobile-hide m-item" th:classappend="${n==3} ? 'active'"><i class="mini tags icon "></i>&nbsp;&nbsp;标签</a>
+            <a href="#" th:href="@{/archives}" class="item m-mobile-hide m-item" th:classappend="${n==4} ? 'active'"><i class="mini clone icon "></i>&nbsp;&nbsp;归档</a>
+            <a href="#" th:href="@{/about}" class="item m-mobile-hide m-item" th:classappend="${n==5} ? 'active'"><i class="mini info icon "></i>&nbsp;&nbsp;关于我</a>
+            <div class="right item m-mobile-hide m-item">
+                <!--transparent 透明化-->
+                <form name="search" action="#" method="post" th:action="@{/search}" target="_blank">
+                    <div class="ui icon inverted transparent input">
+                        <input type="text" name="query" th:value="${query}" placeholder="Search..." >
+                        <i onclick="document.forms['search'].submit()" class="search link icon"></i>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</nav>
+
+    <footer th:fragment="footer" class="ui inverted vertical segment m-padded-tb-massive">
+        <div class="ui center aligned container">
+            <div class="ui inverted divided grid stackable ">
+                <div class="three wide column">
+                    <div class="ui inverted link list">
+                        <div class="item">
+                            <img  src="../static/images/wechat.jpg" th:src="@{/images/wechat.jpg}"  class="ui rounded image " style="width: 110px">
+                        </div>
+                    </div>
+                </div>
+                <div class="three wide column">
+                    <h3 class="ui inverted header m-text-spaced m-text-lined  m-opacity-mini">友链</h3>
+                   <!-- <div id="newblog-container">
+                        <div class="ui inverted link list" th:fragment="newlogList">
+                            <a href="#" th:href="@{/blog/{id}(id=${blog.id})}" target="_blank" class="item" th:each="blog : ${newblogs}" th:text="${blog.title}">用户故事</a>
+                            &lt;!&ndash;/*&ndash;&gt;
+                            <a href="#" class="item">用户故事</a>
+                            <a href="#" class="item">用户故事</a>
+                            &lt;!&ndash;*/&ndash;&gt;
+                        </div>
+                    </div>-->
+                    <div class="ui inverted link list">
+                        <a href="#" class="item">虚位以待</a>
+                        <a href="#" class="item">虚位以待</a>
+                        <a href="#" class="item">虚位以待</a>
+                    </div>
+                </div>
+                <div class="three wide column">
+                    <h3 class="ui inverted header m-text-spaced m-text-lined  m-opacity-mini">联系我</h3>
+                    <div class="ui inverted link list">
+                        <a href="#" class="item" th:text="|邮箱 #{index.email}|">用户故事</a>
+                        <a href="#" class="item" th:text="|QQ #{index.qq}"}>用户故事</a>
+                    </div>
+                </div>
+                <div class="seven wide column">
+                    <h3 class="ui inverted header m-text-spaced m-text-lined  m-opacity-mini">关于</h3>
+                    <div class="ui inverted link list m-opacity-mini">
+                        <p>这是一个基于springboot，mysql的个人博客系统，前端ui基于Semantic UI，前端模板引擎使用了thymeleaf。</p>
+                    </div>
+                </div>
+            </div>
+            <div class="ui inverted section divider"></div>
+            <p class="m-text-spaced m-text-lined m-text-thin m-opacity-tiny">版权信息 大王的阿瓦达挖的阿瓦达阿瓦阿瓦</p>
+        </div>
+
+
+    </footer>
+
+    <th:block th:fragment="script">
+        <script src="https://cdn.bootcss.com/jquery/3.5.0/jquery.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.js"></script>
+        <script src="//cdn.jsdelivr.net/npm/jquery.scrollto@2.1.2/jquery.scrollTo.min.js"></script>
+        <script src="../static/lib/prism/prism.js" th:src="@{/lib/prism/prism.js}"></script>
+        <script src="../static/lib/tocbot/tocbot.min.js" th:src="@{/lib/tocbot/tocbot.min.js}" ></script>
+        <script src="../static/lib/qrcode/qrcode.min.js" th:src="@{/lib/qrcode/qrcode.min.js}"></script>
+        <script src="../static/lib/waypoints/jquery.waypoints.min.js" th:src="@{/lib/waypoints/jquery.waypoints.min.js}"></script>
+        <script>
+            $("#newblog-container").load(/*[[@{/footer/newblog}]]*/"/footer/newblog")
+        </script>
+    </th:block>
+
+</body>
+</html>

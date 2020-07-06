@@ -1,0 +1,5 @@
+2020-04-15 15:11:49.136  INFO 1368 --- [restartedMain] com.huang.BlogApplication                : Starting BlogApplication on DESKTOP-3PMCJ0M with PID 1368 (D:\IdeaWorkspace\blog\target\classes started by Administrator in D:\IdeaWorkspace\blog)
+2020-04-15 15:11:49.154  INFO 1368 --- [restartedMain] com.huang.BlogApplication                : The following profiles are active: pro
+2020-04-15 15:11:51.296  WARN 1368 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2020-04-15 15:11:51.530  WARN 1368 --- [restartedMain] ion$DefaultTemplateResolverConfiguration : Cannot find template location: classpath:/templates/ (please add some templates or check your Thymeleaf configuration)
+2020-04-15 15:11:51.708  INFO 1368 --- [restartedMain] com.huang.BlogApplication                : Started BlogApplication in 3.126 seconds (JVM running for 4.058)
